@@ -5,3 +5,54 @@
 	text-decoration: none;
 	list-style: none;
 }
+
+body{
+	background-color: #DAD7CD;
+}
+
+.main-nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	text-decoration: none;
+	height: 10vh;
+	
+	
+}
+
+a{
+	border: 1px solid #344E41;
+	height: 50%;
+	margin: 5vh 5%;
+	color: #DAD7CD;
+	background-color: #3A5A40;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+}
+
+.Form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 50vh;
+	width: 50%;
+}
+
+#signup {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10%;
+
+}
+
+.submit{
+	display: flex;
+	justify-content: center;
+	margin-top: -15vh;
+	
+}
