@@ -4,7 +4,7 @@ import "../App.css";
 
 function Signup() {
    return (
-       <div className='container'>
+       <div className='signup-container'>
             <div className='Form'>
                 <h2>Sign up for Water My Plants Today!</h2>
                 <form id='signup'>
@@ -38,7 +38,7 @@ function Signup() {
 
                     
                     <div className='submit'>
-                        <button id='signup-button' >Create Account!</button>
+                        <button id='signup-btn' >Create Account!</button>
                     </div>
 
                 </form>

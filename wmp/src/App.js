@@ -26,13 +26,15 @@ function App() {
         </Route>
         <Route path='/' render={props => {
           return (
-            <>
-              <h2>Learn to Water your plants properly!</h2>
-              <button>
-                <Link to='/login'>Log In!</Link>
-                <Link to='/signup'>Sign Up</Link>
-              </button>
-            </>
+            <div className='homepage-container'>
+              <div className='homepage-intro'>
+                <h2>Learn to Water your plants properly!</h2>
+                  <div className='homepage-cta'>
+                    <Link to='/signup'>Sign Up</Link>
+                    <Link to='/login'>Log In!</Link>
+                  </div>
+              </div>
+            </div>
           )
         }}
         />
