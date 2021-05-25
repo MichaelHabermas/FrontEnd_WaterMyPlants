@@ -16,11 +16,22 @@ export default function NewPlant(props) {
 						Species
 						<input type="text" name="species" id="species-input" />
 					</label>
-					<label>
+					{/* <label>
 						{' '}
 						Picture for our new friend:
 						<input type="file" name="newImage" id="image-input" />
-					</label>
+					</label> */}
+                    <div className='frequencyDiv'>
+                        <label>
+                            How Frequently to Water 
+                            <input
+                                type="number"
+                                name="frequency"
+                                id="frequency-input"
+                                min="1"
+                            />
+                        </label>
+                    </div>
 					<div className="submit">
 						<button id="newPlant-button">Add New Plant!</button>
 					</div>
