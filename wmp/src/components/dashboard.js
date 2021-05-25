@@ -1,11 +1,22 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 import '../App.css';
-import { plantData } from './plantData';
+import Plant from './Plant'
+import plantData from '../plantData'
 
 function Dashboard() {
-	const plant = plantData[0];
-	return <div>{/* <Plant id={plant.id} title={plant.title} /> */}</div>;
+		return (
+			<div className='plants'>
+				<h2>Plant Card</h2>
+				{
+				plantData.map(plant => {
+					return (
+						<Plant />
+					)
+				})
+				}
+			</div>
+		)
 }
 
 export default Dashboard;
