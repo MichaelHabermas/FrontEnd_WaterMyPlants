@@ -152,3 +152,14 @@ a{
 	background-color: #3A5A40;
 	color: #DAD7CD;
 }
+#frequency-input{
+	margin-bottom: 5vh;
+	width: 10%;
+	height: 30px;
+}
+
+.frequencyDiv label{
+	display: flex;
+	flex-direction: row;
+}
+
