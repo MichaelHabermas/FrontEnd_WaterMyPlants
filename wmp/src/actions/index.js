@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -12,8 +12,8 @@ export const fetchPlants = () => {
 		dispatch(fetchStart());
 		// dispatch({ type: FETCH_START });
 
-		axios
-			// axiosWithAuth()
+		// axios
+		axiosWithAuth()
 			.get('') // get plants address
 			.then(res => {
 				console.log('RES: ', res.data);
