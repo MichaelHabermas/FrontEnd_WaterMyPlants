@@ -9,14 +9,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		// case LOG_IN:
-		// 	return {
-		// 		...state
-		// 	};
-		// case SIGN_UP:
-		// 	return {
-		// 		...state
-		// 	};
 		case FETCH_START:
 			return {
 				...state,
@@ -25,6 +17,7 @@ const reducer = (state = initialState, action) => {
 		case FETCH_SUCCESS:
 			return {
 				...state,
+				plantData: action.payload,
 				isFetching: false,
 				error: ''
 			};
@@ -39,4 +32,4 @@ const reducer = (state = initialState, action) => {
 	}
 };
 
-// export default reducer;
+export default reducer;
