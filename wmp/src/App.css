@@ -5,3 +5,100 @@
 	text-decoration: none;
 	list-style: none;
 }
+
+body{
+	background-color: #DAD7CD;
+}
+
+header{
+	height: 20vh;
+}
+
+.main-nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	text-decoration: none;
+	background-color: #588157;
+	
+}
+
+a{
+	border: 1px solid #344E41;
+	height: 50%;
+	margin: 5vh 5%;
+	color: #DAD7CD;
+	background-color: #3A5A40;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.homepage-container{
+	display: flex;
+	justify-content: center;
+	height: 70vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('https://heritagegrounds.com/wp-content/uploads/watering-plants-3.jpg');
+}
+.homepage-intro{
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	flex-direction: column;
+
+}
+.homepage-intro a{
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.homepage-intro h2{
+	display: flex;
+	justify-content: center;
+}
+
+.homepage-cta{
+	display: flex;
+	justify-content: center;
+}
+
+.signup-container{
+	margin: 3% 20%;
+	padding:3% 2% ;
+	flex-direction:column;
+	border: 3px solid black;
+	border-radius:10px;
+	box-shadow:black 3px 6px;
+	font-family: ‘Varela’, sans-serif;
+	background:#BABF15;
+	color: #262401;
+}
+
+.Form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 50vh;
+	width: 50%;
+}
+
+#signup {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10%;
+
+}
+
+#signup input{
+	background-color: #80BDF2;
+}
+
+.submit{
+	display: flex;
+	justify-content: center;
+	margin-left: -20%;
+
+}
