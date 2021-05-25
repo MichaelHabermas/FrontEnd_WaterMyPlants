@@ -3,7 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import Signup from './components/signup';
 import Login from './components/login';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard';
 
 function App() {
 	return (
