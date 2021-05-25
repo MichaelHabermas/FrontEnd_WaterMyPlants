@@ -2,10 +2,18 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
+import NewPlant from './newPlantForm';
+import Plant from './Plant';
+// import plantData from '../plantData'
+
 import { fetchPlants } from '../actions/index';
 
 function Dashboard(props) {
 	const { plantData, dispatch } = props;
+
+	console.log('In the Dashboard');
 
 	useEffect(() => {
 		dispatch(fetchPlants());
@@ -13,11 +21,15 @@ function Dashboard(props) {
 	}, []);
 
 	return (
-		<div>
-			{plantData.map(plant => {
-				return <h1 key={plant.id}>{plant.id}</h1>;
-			})}
-		</div>
+		<>
+			<NewPlant />
+			<div className="plants">
+				<h2>Plant Card</h2>
+				{plantData.map(plant => {
+					return <Plant key={plant.id} plant={plant} />;
+				})}
+			</div>
+		</>
 	);
 }
 

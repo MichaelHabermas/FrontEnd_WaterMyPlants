@@ -26,7 +26,7 @@ function App() {
 					<Signup />
 				</Route>
 
-				<PrivateRoute exact path="/dashboard" component={Dashboard} />
+				<PrivateRoute path="/dashboard" component={Dashboard} />
 
 				<Route path="/login">
 					<Login />
