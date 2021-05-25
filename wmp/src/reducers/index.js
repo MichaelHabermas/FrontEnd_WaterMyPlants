@@ -1,5 +1,5 @@
 import plantData from '../plantData';
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, LOG_IN, SIGN_UP } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from '../actions';
 
 const initialState = {
 	plantData: [...plantData],
@@ -9,14 +9,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case LOG_IN:
-			return {
-				...state
-			};
-		case SIGN_UP:
-			return {
-				...state
-			};
+		// case LOG_IN:
+		// 	return {
+		// 		...state
+		// 	};
+		// case SIGN_UP:
+		// 	return {
+		// 		...state
+		// 	};
 		case FETCH_START:
 			return {
 				...state,
