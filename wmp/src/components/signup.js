@@ -27,8 +27,9 @@ function Signup() {
 		e.preventDefault();
 		// signUp(signUpCredentials); // this will need updating RE the PUT call
 		axios
-			.post('http://localhost:5000/api/signUp', signUpCredentials) // replace server location and endpoint
+			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/register', signUpCredentials)
 			.then(res => {
+				console.log('SIGN_UP RES: ', res);
 				localStorage.setItem('token', res.data.payload);
 				setSignUpCredentials(initialSignUpCredentials);
 				history.push('/dashboard');

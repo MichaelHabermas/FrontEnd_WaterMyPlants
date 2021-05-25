@@ -4,6 +4,7 @@ import './App.css';
 import Signup from './components/signup';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
+import PrivateRoute from './components/privateroute';
 
 function App() {
 	return (
@@ -24,7 +25,7 @@ function App() {
 				<Route path="/signup">
 					<Signup />
 				</Route>
-				<Route exact path="/dashboard" component={Dashboard} />
+				<PrivateRoute exact path="/protected" component={Dashboard} />
 				<Route path="/login">
 					<Login />
 				</Route>
