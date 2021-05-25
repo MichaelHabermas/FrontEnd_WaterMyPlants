@@ -27,9 +27,10 @@ function Login() {
 		e.preventDefault();
 		// logIn(credentials); // this will need updating RE the PUT call
 		axios
-			.post('http://localhost:5000/api/login', credentials) // replace server location and endpoint
+			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', credentials)
 			.then(res => {
-				localStorage.setItem('token', res.data.payload);
+				console.log('LOGIN RES: ', res);
+				localStorage.setItem('token', res.data.token);
 				setCredentials(initialCredentials);
 				history.push('/dashboard');
 			})

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
+// import { connect } from 'react-redux';
 import '../App.css';
 import Plant from './Plant'
 import plantData from '../plantData'
