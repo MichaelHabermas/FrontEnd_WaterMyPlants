@@ -1,11 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
-export const SIGN_UP = 'SIGN_UP';
-export const LOG_IN = 'LOG_IN';
+// export const SIGN_UP = 'SIGN_UP';
+// export const LOG_IN = 'LOG_IN';
 
 export const fetchPlants = () => {
 	return dispatch => {
@@ -28,30 +28,35 @@ export const fetchPlants = () => {
 	};
 };
 
-export const signUp = signUpInfo => {
-	// axios
-	// .put('') // server location and endpoint
-	// .then(res => {
-	// 	console.log(res)
-	// }).
-	// .catch(err => {
-	// 	console.log(err)
-	// })
+// export const signUp = signUpInfo => {
+// 		axios
+// 			.post('http://localhost:5000/api/login', signUpInfo) // replace server location and endpoint
+// 			.then(res => {
+// 				localStorage.setItem('token', res.data.payload);
+// 				this.props.history.push('/dashboard');
+// 			})
+// 			.catch(err => {
+// 				console.log(err);
+// 				// dispatch(fetchFail(err));
+// 			});
 
-	return { type: SIGN_UP, payload: signUpInfo };
-};
-export const logIn = credentials => {
-	// axios
-	// .put('') // server location and endpoint
-	// .then(res => {
-	// 	console.log(res)
-	// }).
-	// .catch(err => {
-	// 	console.log(err)
-	// })
+// 	// return { type: SIGN_UP, payload: signUpInfo };
+// };
 
-	return { type: LOG_IN, payload: credentials };
-};
+// export const logIn = credentials => {
+// 	axios
+// 		.post('http://localhost:5000/api/login', credentials) // replace server location and endpoint
+// 		.then(res => {
+// 			localStorage.setItem('token', res.data.payload);
+// 			this.props.history.push('/dashboard');
+// 		})
+// 		.catch(err => {
+// 			console.log(err);
+// 		});
+
+// 	return { type: LOG_IN, payload: credentials };
+// };
+
 export const fetchStart = () => {
 	return { type: FETCH_START };
 };

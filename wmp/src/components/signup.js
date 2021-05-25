@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
 
-import { signUp } from '../actions/index';
+import axios from 'axios';
+
+// import { signUp } from '../actions/index';
 
 const initialSignUpCredentials = {
 	username: '',
@@ -23,9 +25,17 @@ function Signup() {
 
 	const handleSignUp = e => {
 		e.preventDefault();
-		signUp(signUpCredentials); // this will need updating RE the PUT call
-		setSignUpCredentials(initialSignUpCredentials);
-		history.push('/dashboard');
+		// signUp(signUpCredentials); // this will need updating RE the PUT call
+		axios
+			.post('http://localhost:5000/api/signUp', signUpCredentials) // replace server location and endpoint
+			.then(res => {
+				localStorage.setItem('token', res.data.payload);
+				setSignUpCredentials(initialSignUpCredentials);
+				history.push('/dashboard');
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	};
 
 	return (

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
+import axios from 'axios';
 
 import { logIn } from '../actions/index';
+// import { logIn } from '../actions/index';
 
 const initialCredentials = {
 	username: '',
@@ -23,8 +25,17 @@ function Login() {
 
 	const submitLogin = e => {
 		e.preventDefault();
-		logIn(credentials); // this will need updating RE the PUT call
-		history.push('/dashboard');
+		// logIn(credentials); // this will need updating RE the PUT call
+		axios
+			.post('http://localhost:5000/api/login', credentials) // replace server location and endpoint
+			.then(res => {
+				localStorage.setItem('token', res.data.payload);
+				setCredentials(initialCredentials);
+				history.push('/dashboard');
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	};
 
 	return (
