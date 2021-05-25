@@ -7,7 +7,7 @@ import axios from 'axios';
 const initialSignUpCredentials = {
 	username: '',
 	password: '',
-	phoneNumber: ''
+	phone_number: ''
 };
 
 function Signup() {
@@ -27,12 +27,24 @@ function Signup() {
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/register', signUpCredentials)
 			.then(res => {
 				console.log('SIGN_UP RES: ', res);
-				localStorage.setItem('token', res.data.payload);
-				setSignUpCredentials(initialSignUpCredentials);
-				history.push('/dashboard');
+				axios
+					.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', {
+						username: signUpCredentials.username,
+						password: signUpCredentials.password
+					})
+					.then(res => {
+						// console.log('LOGIN RES: ', res);
+						localStorage.setItem('token', res.data.token);
+						// setCredentials(initialCredentials);
+						setSignUpCredentials(initialSignUpCredentials);
+						history.push('/dashboard');
+					})
+					.catch(err => {
+						console.log('ERROR: ', err.message);
+					});
 			})
 			.catch(err => {
-				console.log(err);
+				console.log('ERROR: ', err.message);
 			});
 	};
 
@@ -72,10 +84,10 @@ function Signup() {
 						Phone Number
 						<input
 							type="tel"
-							name="phoneNumber"
+							name="phone_number"
 							id="phone"
 							// maxLength="10"
-							value={signUpCredentials.phoneNumber}
+							value={signUpCredentials.phone_number}
 							onChange={handleChange}
 						/>
 					</label>
