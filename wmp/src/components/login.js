@@ -9,6 +9,7 @@ const initialCredentials = {
 	password: ''
 };
 
+<<<<<<< HEAD
 function Login() {
   const [credentials, setCredentials] = useState(initialCredentials);
 
@@ -65,3 +66,32 @@ function Login() {
 
 export default Login;
 // export default connect(null, {})(Login);
+=======
+function Signup() {
+  return ( <form>
+      <div className='form'>
+        <h2>Login Credentials</h2>
+        <label>
+            Name:
+            <input
+                value=''
+                name='name'
+                type='text'
+            />
+        </label>
+        <label>
+            Password:
+            <input
+                value=''
+                name='password'
+                type='password'
+            />
+        </label>
+      </div>
+      <button id="submit-btn">Login</button>
+  </form>
+  )
+}
+
+export default Signup;
+>>>>>>> 3d6789a7e9fde662c43c972e923df8e1c42df859
