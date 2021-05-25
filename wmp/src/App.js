@@ -10,7 +10,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<nav class="nav main-nav">
+				<nav className="nav main-nav">
 					<Link to="/">Home</Link>
 					<Link to="/signup" id="signup">
 						Sign Up
@@ -25,10 +25,13 @@ function App() {
 				<Route path="/signup">
 					<Signup />
 				</Route>
-				<PrivateRoute exact path="/protected" component={Dashboard} />
+
+				<PrivateRoute path="/dashboard" component={Dashboard} />
+
 				<Route path="/login">
 					<Login />
 				</Route>
+
 				<Route
 					path="/"
 					render={props => {

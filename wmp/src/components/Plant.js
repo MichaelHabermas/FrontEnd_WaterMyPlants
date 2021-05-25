@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import '../App.css';
-import plantData from '../plantData'
+// import plantData from '../plantData';
 
-function Plant() {
-    return (
-        <div>
-            <h2>{plantData.key}</h2>
-            <div>{plantData.image}</div>
-            <p>{plantData.species}</p>
-            <p>{plantData.nickname}</p>
-        </div>
-        )
-    }
+function Plant(props) {
+	const { plant } = props;
+
+	return (
+		<div>
+			<h2>{plant.key}</h2>
+			<div>{plant.image}</div>
+			<p>{plant.species}</p>
+			<p>{plant.nickname}</p>
+			<p>{plant.h2o_frequency}</p>
+		</div>
+	);
+}
 
 export default Plant;

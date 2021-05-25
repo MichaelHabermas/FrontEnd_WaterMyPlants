@@ -4,8 +4,6 @@ import '../App.css';
 
 import axios from 'axios';
 
-// import { signUp } from '../actions/index';
-
 const initialSignUpCredentials = {
 	username: '',
 	password: '',
@@ -25,7 +23,6 @@ function Signup() {
 
 	const handleSignUp = e => {
 		e.preventDefault();
-		// signUp(signUpCredentials); // this will need updating RE the PUT call
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/register', signUpCredentials)
 			.then(res => {

@@ -3,9 +3,6 @@ import { useHistory } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
-import { logIn } from '../actions/index';
-// import { logIn } from '../actions/index';
-
 const initialCredentials = {
 	username: '',
 	password: ''
@@ -13,7 +10,6 @@ const initialCredentials = {
 
 function Login() {
 	const [credentials, setCredentials] = useState(initialCredentials);
-
 	const history = useHistory();
 
 	const handleChange = e => {
@@ -25,7 +21,6 @@ function Login() {
 
 	const submitLogin = e => {
 		e.preventDefault();
-		// logIn(credentials); // this will need updating RE the PUT call
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', credentials)
 			.then(res => {
@@ -79,4 +74,3 @@ function Login() {
 }
 
 export default Login;
-// export default connect(null, {})(Login);
