@@ -7,5 +7,5 @@ function Dashboard() {
 	return <h1>Testing Dashboard</h1>;
 }
 
-// export default Dashboard;
-export default connect(null, {})(Dashboard);
+export default Dashboard;
+// export default connect(null, {})(Dashboard);
