@@ -102,3 +102,53 @@ a{
 	margin-left: -20%;
 
 }
+
+.newPlant{
+	display: flex;
+	justify-content: center;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+.builder{
+	background-color: #7CBC03;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 10px;
+	box-shadow: black 3px 3px;
+	color: #262401;
+}
+.builder label{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 3vh;
+}
+
+#plant-form{
+	display: flex;
+	flex-direction: column;
+	align-content: space-between;
+}
+
+#plant-form input{
+	margin-top: 5vh;
+}
+
+#species-input{
+	margin-bottom: 5vh;
+}
+
+#image-input{
+	margin-bottom: 5vh;
+}
+
+#newPlant-button{
+	width: 40%;
+	height: 7vh;
+	border-radius: 5px;
+	background-color: #3A5A40;
+	color: #DAD7CD;
+}
