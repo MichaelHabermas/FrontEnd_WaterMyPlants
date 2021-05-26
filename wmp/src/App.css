@@ -311,3 +311,9 @@
 .box button:hover {
 	background: #00cc66;
 }
+
+.plant-pic {
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-// import plantData from '../plantData';
+import plantDefault from '../plant.png';
 
 function Plant(props) {
 	const { plant } = props;
@@ -8,7 +8,7 @@ function Plant(props) {
 	return (
 		<div>
 			<h2>{plant.key}</h2>
-			<div>{plant.image}</div>
+			<img className="plant-pic" src={plant.image || plantDefault} alt="plant" />
 			<p>{plant.species}</p>
 			<p>{plant.nickname}</p>
 			<p>{plant.h2o_frequency}</p>
