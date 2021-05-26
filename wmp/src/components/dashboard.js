@@ -2,18 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 
-
-
 import NewPlant from './newPlantForm';
 import Plant from './Plant';
-// import plantData from '../plantData'
 
 import { fetchPlants } from '../actions/index';
 
 function Dashboard(props) {
 	const { plantData, dispatch } = props;
-
-	console.log('In the Dashboard');
 
 	useEffect(() => {
 		dispatch(fetchPlants());
@@ -36,7 +31,8 @@ function Dashboard(props) {
 const mapStateToProps = state => {
 	return {
 		...state,
-		plantData: state.plantData
+		plantData: state.plantData,
+		isLoggedIn: state.isLoggedIn
 	};
 };
 
