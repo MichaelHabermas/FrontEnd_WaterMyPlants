@@ -6,12 +6,12 @@ function Plant(props) {
 	const { plant } = props;
 
 	return (
-		<div>
-			<h2>{plant.key}</h2>
+		<div className="card-container">
+			<h3>{plant.plant_owner}</h3>
 			<img className="plant-pic" src={plant.image || plantDefault} alt="plant" />
-			<p>{plant.species}</p>
-			<p>{plant.nickname}</p>
-			<p>{plant.h2o_frequency}</p>
+			<p>Species: {plant.species}</p>
+			<p>Nickname: {plant.nickname}</p>
+			<p>Water Frequency: {plant.h2o_frequency}</p>
 		</div>
 	);
 }

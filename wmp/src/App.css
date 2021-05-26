@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style: none;
+	text-transform: capitalize;
 }
 
 /* Home page styles */
@@ -296,7 +297,6 @@
 	background: none;
 	display: block;
 	margin: 20px auto;
-
 	text-align: center;
 	border: 2px solid #00cc66;
 	padding: 14px 40px;
@@ -316,4 +316,71 @@
 	width: 100px;
 	height: 100px;
 	overflow: hidden;
+}
+
+/* dashboard styles */
+
+.plantCard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	overflow: scroll;
+}
+
+.card-container {
+	background-color: #7cbc03;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
+	color: #262401;
+	margin: auto;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	box-shadow: black 3px 3px;
+	box-sizing: content-box;
+	width: 40%;
+}
+
+.plantCard h2 {
+	background-color: #7cbc03;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #262401;
+	margin: auto;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	box-shadow: black 3px 3px;
+	box-sizing: content-box;
+	width: 40%;
+}
+
+/* width */        
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: lightskyblue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: darkslateblue;
+}
+  
+.scroll {
+	display: block;
+	border: 0px solid red;
+	padding: 5px;
+	margin-top: 5px;
+	width: 100%;
+	height: 78vh;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
 }
