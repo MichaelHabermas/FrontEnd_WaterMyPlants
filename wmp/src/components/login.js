@@ -24,7 +24,6 @@ function Login() {
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', credentials)
 			.then(res => {
-				// console.log('LOGIN RES: ', res);
 				localStorage.setItem('token', res.data.token);
 				setCredentials(initialCredentials);
 				history.push('/dashboard');

@@ -7,6 +7,11 @@ import Dashboard from './components/dashboard';
 import PrivateRoute from './components/privateroute';
 
 function App() {
+	// const logout = () => {
+	// 	localStorage.removeItem('token');
+	// 	window.location.href = '/';
+	// };
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -33,6 +38,7 @@ function App() {
 				</Route>
 
 				<Route
+					exact
 					path="/"
 					render={props => {
 						return (

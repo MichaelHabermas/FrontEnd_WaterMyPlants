@@ -2,18 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-
 import NewPlant from './newPlantForm';
 import Plant from './Plant';
-// import plantData from '../plantData'
 
 import { fetchPlants } from '../actions/index';
 
 function Dashboard(props) {
 	const { plantData, dispatch } = props;
-
-	console.log('In the Dashboard');
 
 	useEffect(() => {
 		dispatch(fetchPlants());

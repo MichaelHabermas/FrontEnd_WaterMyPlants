@@ -26,16 +26,13 @@ function Signup() {
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/register', signUpCredentials)
 			.then(res => {
-				console.log('SIGN_UP RES: ', res);
 				axios
 					.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', {
 						username: signUpCredentials.username,
 						password: signUpCredentials.password
 					})
 					.then(res => {
-						// console.log('LOGIN RES: ', res);
 						localStorage.setItem('token', res.data.token);
-						// setCredentials(initialCredentials);
 						setSignUpCredentials(initialSignUpCredentials);
 						history.push('/dashboard');
 					})
