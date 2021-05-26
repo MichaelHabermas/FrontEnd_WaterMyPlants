@@ -1,9 +1,10 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_PLANT } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_PLANT, LOG_IN, LOG_OUT } from '../actions';
 
 const initialState = {
 	plantData: [{}],
 	isFetching: false,
-	error: ''
+	error: '',
+	isLoggedIn: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +31,16 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				plantData: [...state.plantData, action.payload]
+			};
+		case LOG_IN:
+			return {
+				...state,
+				isLoggedIn: true
+			};
+		case LOG_OUT:
+			return {
+				...state,
+				isLoggedIn: false
 			};
 		default:
 			return state;

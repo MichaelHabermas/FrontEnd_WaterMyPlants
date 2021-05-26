@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
-
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { logIn } from '../actions/index';
 
 const initialSignUpCredentials = {
 	username: '',
@@ -10,9 +12,10 @@ const initialSignUpCredentials = {
 	phone_number: ''
 };
 
-function Signup() {
+function Signup(props) {
 	const [signUpCredentials, setSignUpCredentials] = useState(initialSignUpCredentials);
 	const history = useHistory();
+	const { dispatch } = props;
 
 	const handleChange = e => {
 		setSignUpCredentials({
@@ -34,6 +37,7 @@ function Signup() {
 					.then(res => {
 						localStorage.setItem('token', res.data.token);
 						setSignUpCredentials(initialSignUpCredentials);
+						dispatch(logIn());
 						history.push('/dashboard');
 					})
 					.catch(err => {
@@ -46,58 +50,64 @@ function Signup() {
 	};
 
 	return (
-		<div className="signup-container">
-			<div className="Form">
-				<h2>Sign up for Water My Plants Today!</h2>
-				<form id="signup" onSubmit={handleSignUp}>
-					<label>
-						{' '}
-						Name
-						<input
-							type="text"
-							name="username"
-							id="name-input"
-							value={signUpCredentials.username}
-							onChange={handleChange}
-						/>
-					</label>
-					<br />
-					<label>
-						{' '}
-						Password
-						<input
-							type="password"
-							name="password"
-							id="password-input"
-							minLength="5"
-							value={signUpCredentials.password}
-							onChange={handleChange}
-						/>
-					</label>
+		<form id="signup" onSubmit={handleSignUp} className="sbox">
+			<h1>Sign Up</h1>
 
-					<br />
-					<label>
-						{' '}
-						Phone Number
-						<input
-							type="tel"
-							name="phone_number"
-							id="phone"
-							// maxLength="10"
-							value={signUpCredentials.phone_number}
-							onChange={handleChange}
-						/>
-					</label>
-					<br />
+			<label>
+				{' '}
+				Name
+				<input
+					type="text"
+					name="username"
+					id="name-input"
+					value={signUpCredentials.username}
+					onChange={handleChange}
+					placeholder="Username"
+				/>
+			</label>
+			<br />
+			<label>
+				{' '}
+				Password
+				<input
+					type="password"
+					name="password"
+					id="password-input"
+					minLength="5"
+					value={signUpCredentials.password}
+					onChange={handleChange}
+					placeholder="Password"
+				/>
+			</label>
 
-					<div className="submit">
-						<button id="signup-btn">Create Account!</button>
-					</div>
-				</form>
-			</div>
-		</div>
+			<br />
+			<label>
+				{' '}
+				Phone Number
+				<input
+					type="tel"
+					name="phone_number"
+					id="phone"
+					// maxLength="10"
+					value={signUpCredentials.phone_number}
+					onChange={handleChange}
+					placeholder="Phone Number"
+				/>
+			</label>
+			<br />
+
+			<button id="signup-btn">Create Account</button>
+		</form>
 	);
 }
 
-export default Signup;
-// export default connect(null, {})(Signup);
+// export default Signup;
+
+const mapStateToProps = state => {
+	return {
+		...state,
+		isLoggedIn: state.isLoggedIn
+	};
+};
+
+export default connect(mapStateToProps)(Signup);

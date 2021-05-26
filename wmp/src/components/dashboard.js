@@ -31,7 +31,8 @@ function Dashboard(props) {
 const mapStateToProps = state => {
 	return {
 		...state,
-		plantData: state.plantData
+		plantData: state.plantData,
+		isLoggedIn: state.isLoggedIn
 	};
 };
 
