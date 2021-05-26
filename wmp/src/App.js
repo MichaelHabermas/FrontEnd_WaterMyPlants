@@ -17,18 +17,18 @@ function App() {
               <ul className="navMenu">
                 <Link to="/">
                   <li>
-                    <a href="#">Home</a>
+                    <a href="#0">Home</a>
                   </li>
                 </Link>
 
                 <Link to="/login" id="login">
                   <li>
-                    <a href="#">Login</a>
+                    <a href="#0">Login</a>
                   </li>
                 </Link>
                 <Link to="/signup" id="signup">
                   <li>
-                    <a href="#">Sign Up</a>
+                    <a href="#0">Sign Up</a>
                   </li>
                 </Link>
               </ul>
