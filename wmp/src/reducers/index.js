@@ -1,4 +1,13 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_PLANT, LOG_IN, LOG_OUT } from '../actions';
+import {
+	FETCH_START,
+	FETCH_SUCCESS,
+	FETCH_FAIL,
+	ADD_PLANT,
+	LOG_IN,
+	LOG_OUT,
+	EDIT_PLANT,
+	DELETE_PLANT
+} from '../actions';
 
 const initialState = {
 	plantData: [{}],
@@ -31,6 +40,16 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				plantData: [...state.plantData, action.payload]
+			};
+		case EDIT_PLANT:
+			return {
+				...state
+				// plantData: [...state.plantData, action.payload]
+			};
+		case DELETE_PLANT:
+			return {
+				...state
+				// plantData: [...state.plantData, action.payload]
 			};
 		case LOG_IN:
 			return {
