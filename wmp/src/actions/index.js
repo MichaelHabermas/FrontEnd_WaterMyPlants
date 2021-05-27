@@ -27,8 +27,8 @@ export const fetchPlants = () => {
 export const addPlant = (newPlant) => {
   return { type: ADD_PLANT, payload: newPlant };
 };
-export const deletePlant = (plant) => {
-  return { type: DELETE_PLANT, payload: plant };
+export const deletePlant = (newPlantList) => {
+  return { type: DELETE_PLANT, payload: newPlantList };
 };
 export const editPlant = (plant) => {
   return { type: EDIT_PLANT, payload: plant };
