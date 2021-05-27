@@ -194,6 +194,7 @@
 	display: flex;
 	justify-content: center;
 	margin: 5vh;
+	margin-top: 13vh;
 }
 
 .builder {
@@ -220,20 +221,20 @@
 }
 
 #plant-form input {
-	margin-top: 5vh;
+	margin-top: 1vh;
 }
 
 #water-input {
-	margin-bottom: 5vh;
+	margin-bottom: 1vh;
 }
 
 #newPlant-button {
-	width: 40%;
-	height: 7vh;
+	width: 65%;
 	border-radius: 5px;
+	padding: 5%;
 	background-color: #3a5a40;
 	color: #dad7cd;
-	margin: 10%;
+	margin-top: 2vh;
 }
 #frequency-input {
 	margin-bottom: 5vh;
@@ -323,20 +324,24 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	overflow: scroll;
-	margin: 5vh;
+	width: 100%;
 }
 
 .cardHeader {
 	background-color: #7cbc03;
 	border-radius: 10px;
-	padding: 40px;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: #262401;
-	margin: 5vh;
+	box-shadow: black 3px 3px;
+	font-size: 2.5vw;
+	margin-bottom: 20px;
+	padding: 5%;
 }
 
 .card-container {
@@ -348,28 +353,73 @@
 	align-items: center;
 	flex-wrap: wrap;
 	color: #262401;
-	margin: auto;
-	margin-bottom: 20px;
 	border-radius: 10px;
 	box-shadow: black 3px 3px;
 	box-sizing: content-box;
-	width: 30%;
+	width: 20%;
+	margin-bottom: 20px;
 }
 
-.plantCard h2 {
+.plantCard h3 {
 	background-color: #7cbc03;
-	padding: 40px;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 5%;
 	color: #262401;
 	margin: auto;
 	margin-bottom: 20px;
 	border-radius: 10px;
 	box-shadow: black 3px 3px;
 	box-sizing: content-box;
+	width: 100%;
+	font-size: 1vw;
+}
+
+#plantCardInfo label {
+	padding: 5%;
+	color: #262401;
+	margin: auto;
+	border-radius: 10px;
+	box-shadow: black 3px 3px;
+	box-sizing: content-box;
+	width: 100%;
+	font-size: 1.5vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-container button {
 	width: 40%;
+	border-radius: 5px;
+	background-color: #3a5a40;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 2%;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+#editBtn {
+	color: #dad7cd;
+	margin-top: 2vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#deleteBtn {
+	color: #dad7cd;
+	margin-top: 2vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 /* width */        
@@ -388,7 +438,7 @@
 }
   
 .scroll {
-	display: block;
+	display: flex;
 	border: 0px solid red;
 	padding: 5px;
 	margin-top: 5px;
@@ -396,11 +446,16 @@
 	height: 78vh;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-		div.nav {
-		  float: none;
-		  width: 100%;
-		}
-  }
+
+
+
+
+
+
+  /* 1024 // 800 // 500 // lower */
