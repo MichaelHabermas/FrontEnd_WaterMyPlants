@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Signup from './components/signup';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
+import Account from './components/Account';
 import PrivateRoute from './components/privateroute';
 
 import { logOut } from './actions/index';
@@ -33,6 +34,16 @@ function App(props) {
 
 								{isLoggedIn ? (
 									<>
+										<Link to="/dashboard" id="dashboard">
+											<li>
+												<a href="#0">Dashboard</a>
+											</li>
+										</Link>
+										<Link to="/account" id="account">
+											<li>
+												<a href="#0">Account</a>
+											</li>
+										</Link>
 										<Link to="/" id="logout" onClick={handleLogout}>
 											<li>
 												<a href="#0">Logout</a>
@@ -64,6 +75,7 @@ function App(props) {
 							<Login />
 						</Route>
 						<PrivateRoute path="/dashboard" component={Dashboard} />
+						<PrivateRoute path="/account" component={Account} />
 
 						<Route
 							path="/"

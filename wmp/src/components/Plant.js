@@ -21,22 +21,15 @@ function Plant(props) {
 		dispatch(startEditing());
 	};
 
-	const handleEditSubmit = () => {
+	const handleUpdateSubmit = e => {
+		e.preventDefault();
 		axiosWithAuth()
-			.put(`https://ft-water-my-plants-3.herokuapp.com/api/plants/${plant.plant_id}`)
+			.put(`https://ft-water-my-plants-3.herokuapp.com/api/plants/${plantToEdit.plant_id}`, plantToEdit)
 			.then(res => {
-				console.log(res);
-				const newPlantList = props.plantData.map(item => {
-					if (item.plant_id === plantToEdit.plant_id) {
-						return plantToEdit;
-					} else {
-						return item;
-					}
-				});
-				dispatch(updatePlant(newPlantList));
+				dispatch(updatePlant(plantToEdit));
 			})
-			.then(res => {
-				console.log(res);
+			.catch(err => {
+				console.log(err);
 			});
 	};
 
@@ -52,6 +45,10 @@ function Plant(props) {
 			.catch(err => {
 				console.log(err);
 			});
+	};
+
+	const handleCancelUpdate = () => {
+		dispatch(cancelUpdate());
 	};
 
 	return (
@@ -95,8 +92,8 @@ function Plant(props) {
 								onChange={handleChange}
 							/>
 						</label>
-						<button onClick={handleEditSubmit}>Update</button>
-						<button>Cancel</button>
+						<button onClick={handleUpdateSubmit}>Update</button>
+						<button onClick={handleCancelUpdate}>Cancel</button>
 					</form>
 				</>
 			) : (

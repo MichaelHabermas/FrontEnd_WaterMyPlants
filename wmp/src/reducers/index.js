@@ -58,7 +58,9 @@ const reducer = (state = initialState, action) => {
 		case UPDATE_PLANT:
 			return {
 				...state,
-				plantData: [...state.plantData, action.payload],
+				plantData: state.plantData.map(item =>
+					item.plant_id === action.payload.plant_id ? action.payload : item
+				),
 				isEditing: false
 			};
 		case DELETE_PLANT:
