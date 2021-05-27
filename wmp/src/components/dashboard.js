@@ -19,8 +19,10 @@ function Dashboard(props) {
 		<>
 			<NewPlant />
 			<div className="scroll">
-				<div className="plantCard">
+				<div className="cardHeader">
 					<h2>Plant Cards</h2>
+				</div>
+				<div className="plantCard">
 					{
 					plantData.map(plant => {
 						return <Plant key={plant.id} plant={plant} />;
