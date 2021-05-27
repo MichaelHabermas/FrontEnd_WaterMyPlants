@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
     case DELETE_PLANT:
       return {
         ...state,
-        // plantData: [...state.plantData, action.payload]
+        plantData: [...action.payload],
       };
     case LOG_IN:
       return {

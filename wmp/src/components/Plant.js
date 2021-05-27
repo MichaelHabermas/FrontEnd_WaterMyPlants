@@ -19,15 +19,18 @@ function Plant(props) {
     console.log("working");
     axiosWithAuth()
       .delete(
-        `https://ft-water-my-plants-3.herokuapp.com/api/${props.userId}/${plant.plant_id}`
+        `https://ft-water-my-plants-3.herokuapp.com/api/plants/${props.userId}/${plant.plant_id}`
       )
       .then((res) => {
         console.log(res);
+        const newPlantData = props.plantData.filter(
+          (item) => item.plant_id !== plant.plant_id
+        );
+        dispatch(deletePlant(newPlantData));
       })
       .catch((err) => {
         console.log(err);
       });
-    dispatch(deletePlant());
   };
 
   return (
