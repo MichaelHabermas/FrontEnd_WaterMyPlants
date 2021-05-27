@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { addPlant } from "../actions/index";
@@ -9,12 +9,11 @@ const initialPlant = {
   h2o_frequency: "",
   image: null,
   species: "",
-//   plant_id: Math.random(),
 };
 
 function NewPlant(props) {
   const [newPlant, setNewPlant] = useState(initialPlant);
-  const history = useHistory();
+  //   const history = useHistory();
   const { dispatch } = props;
 
   const handleChange = (e) => {
@@ -34,7 +33,7 @@ function NewPlant(props) {
       .then((res) => {
         dispatch(addPlant(newPlant));
         setNewPlant(initialPlant);
-        history.push("/dashboard");
+        // history.push("/dashboard");
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +52,7 @@ function NewPlant(props) {
               type="text"
               name="species"
               id="species-input"
-              // value={newPlant.species}
+              value={newPlant.species}
               onChange={handleChange}
             />
           </label>
@@ -64,7 +63,7 @@ function NewPlant(props) {
               type="text"
               name="nickname"
               id="nickname-input"
-              // value={newPlant.nickname}
+              value={newPlant.nickname}
               onChange={handleChange}
             />
           </label>
@@ -75,7 +74,7 @@ function NewPlant(props) {
               type="text"
               name="h2o_frequency"
               id="water-input"
-              // value={newPlant.nickname}
+              value={newPlant.h2o_frequency}
               onChange={handleChange}
             />
           </label>
