@@ -8,7 +8,7 @@ import { deletePlant } from "../actions/index";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 function Plant(props) {
-  const { plant, dispatch } = props;
+  const { plant, dispatch, key } = props;
 
   const handleEdit = () => {
     console.log("working");
@@ -34,7 +34,7 @@ function Plant(props) {
   };
 
   return (
-    <div className="card-container">
+    <div className="card-container" key={key}>
       <h3>{plant.plant_owner}</h3>
       <img
         className="plant-pic"
