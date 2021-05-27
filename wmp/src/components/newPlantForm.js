@@ -40,6 +40,17 @@ export default function NewPlant() {
 			<div className="builder">
 				<h2>Add a new Plant!</h2>
 				<form onSubmit={handleSubmit} id="plant-form">
+				<label>
+						{' '}
+						Species
+						<input
+							type="text"
+							name="species"
+							id="species-input"
+							// value={newPlant.species}
+							onChange={handleChange}
+						/>
+					</label>
 					<label>
 						{' '}
 						Plant's Nickname
@@ -53,23 +64,12 @@ export default function NewPlant() {
 					</label>
 					<label>
 						{' '}
-						Species
+						Water Frequency
 						<input
 							type="text"
-							name="species"
-							id="species-input"
-							// value={newPlant.species}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>
-						{' '}
-						Picture for our new friend:
-						<input
-							type="file"
-							name="image"
-							id="image-input"
-							// value={newPlant.image}
+							name="water"
+							id="water-input"
+							// value={newPlant.nickname}
 							onChange={handleChange}
 						/>
 					</label>
