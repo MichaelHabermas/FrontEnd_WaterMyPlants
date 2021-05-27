@@ -1,55 +1,55 @@
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-export const FETCH_START = 'FETCH_START';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAIL = 'FETCH_FAIL';
-export const ADD_PLANT = 'ADD_PLANT';
-export const DELETE_PLANT = 'DELETE_PLANT';
-export const EDIT_PLANT = 'EDIT_PLANT';
-export const LOG_IN = 'LOG_IN';
-export const LOG_OUT = 'LOG_OUT';
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAIL = "FETCH_FAIL";
+export const ADD_PLANT = "ADD_PLANT";
+export const DELETE_PLANT = "DELETE_PLANT";
+export const EDIT_PLANT = "EDIT_PLANT";
+export const LOG_IN = "LOG_IN";
+export const LOG_OUT = "LOG_OUT";
 
 export const fetchPlants = () => {
-	return dispatch => {
-		dispatch(fetchStart());
+  return (dispatch) => {
+    dispatch(fetchStart());
 
-		axiosWithAuth()
-			.get('https://ft-water-my-plants-3.herokuapp.com/api/plants')
-			.then(res => {
-				dispatch(fetchSuccess(res.data));
-			})
-			.catch(err => {
-				dispatch(fetchFail(err));
-			});
-	};
-};
-
-export const addPlant = newPlant => {
-	return { type: ADD_PLANT, payload: newPlant };
-};
-export const deletePlant = plant => {
-	return { type: DELETE_PLANT, payload: plant };
-};
-export const editPlant = plant => {
-	return { type: EDIT_PLANT, payload: plant };
+    axiosWithAuth()
+      .get("https://ft-water-my-plants-3.herokuapp.com/api/plants")
+      .then((res) => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch((err) => {
+        dispatch(fetchFail(err));
+      });
+  };
 };
 
-export const logIn = () => {
-	return { type: LOG_IN };
+export const addPlant = (newPlant) => {
+  return { type: ADD_PLANT, payload: newPlant };
+};
+export const deletePlant = (plant) => {
+  return { type: DELETE_PLANT, payload: plant };
+};
+export const editPlant = (plant) => {
+  return { type: EDIT_PLANT, payload: plant };
+};
+
+export const logIn = (userId) => {
+  return { type: LOG_IN, payload: userId };
 };
 
 export const logOut = () => {
-	localStorage.removeItem('token');
-	window.location.href = '/';
-	return { type: LOG_OUT };
+  localStorage.removeItem("token");
+  window.location.href = "/";
+  return { type: LOG_OUT };
 };
 
 export const fetchStart = () => {
-	return { type: FETCH_START };
+  return { type: FETCH_START };
 };
-export const fetchSuccess = plants => {
-	return { type: FETCH_SUCCESS, payload: plants };
+export const fetchSuccess = (plants) => {
+  return { type: FETCH_SUCCESS, payload: plants };
 };
-export const fetchFail = error => {
-	return { type: FETCH_FAIL, payload: error };
+export const fetchFail = (error) => {
+  return { type: FETCH_FAIL, payload: error };
 };
