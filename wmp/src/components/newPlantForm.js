@@ -73,7 +73,7 @@ function NewPlant(props) {
 						/>
 					</label>
 					<div className="submit">
-						<button id="newPlant-button">Add New Plant!</button>
+						<button id="newPlant-button">Add Plant!</button>
 					</div>
 				</form>
 			</div>
