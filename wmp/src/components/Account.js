@@ -1,75 +1,93 @@
-import React, { useState } from 'react';
-import '../App.css';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import "../App.css";
+import { connect } from "react-redux";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const initialAccountInfo = {
-	username: '',
-	password: ''
+const initialCredentials = {
+  username: "",
+  password: "",
+  phone_number: null,
 };
 
 function Account(props) {
-	const [accountInfo, setAccountInfo] = useState(initialAccountInfo);
-	const { dispatch } = props;
+  const { push } = useHistory();
+  const [personToEdit, setPersonToEdit] = useState(initialCredentials);
 
-	const handleChange = e => {
-		setAccountInfo({
-			...accountInfo,
-			[e.target.name]: e.target.value
-		});
-	};
+  const handleChange = (e) => {
+    setPersonToEdit({
+      ...personToEdit,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		axiosWithAuth()
-			.post(`https://ft-water-my-plants-3.herokuapp.com/api/plants/user/${props.userId}`, accountInfo) // fix this
-			.then(res => {
-				// dispatch(addPlant(newPlant));
-				// setNewPlant(initialPlant);
-			})
-			.catch(err => {
-				console.log(err);
-			});
-	};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put(
+        `https://ft-water-my-plants-3.herokuapp.com/api/users/${props.user_id}`,
+        personToEdit
+      )
+      .then((res) => {
+        localStorage.removeItem("token");
+        push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-	return (
-		<div className="newPlant">
-			<div className="builder">
-				<h2>Account Info</h2>
-				<form onSubmit={handleSubmit} id="plant-form">
-					<label>
-						UserName
-						<input
-							type="text"
-							name="username"
-							id="username-input"
-							value={accountInfo.username}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>
-						Password
-						<input
-							type="password"
-							name="password"
-							id="password-input"
-							value={accountInfo.password}
-							onChange={handleChange}
-						/>
-					</label>
-					<div className="submit">
-						<button id="newPlant-button">Edit</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	);
+  return (
+    <>
+      <form id="accountCardInfo" className="abox">
+        <h1>Update Account</h1>
+        <label>
+          {" "}
+          Username
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value={personToEdit.username}
+            onChange={handleChange}
+            placeholder="Username"
+          />
+        </label>
+        <label>
+          {" "}
+          Password
+          <input
+            type="text"
+            name="password"
+            id="password"
+            value={personToEdit.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
+        </label>
+        <label>
+          {" "}
+          Phone Number
+          <input
+            type="text"
+            name="phone_number"
+            id="phone_number"
+            value={personToEdit.phone_number}
+            onChange={handleChange}
+            placeholder="Phone Number"
+          />
+        </label>
+        <button onClick={handleSubmit}>Update Account</button>
+      </form>
+    </>
+  );
 }
 
-const mapStateToProps = state => {
-	return {
-		...state
-	};
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    userId: state.userId,
+  };
 };
 
 export default connect(mapStateToProps)(Account);
