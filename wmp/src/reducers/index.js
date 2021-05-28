@@ -93,6 +93,11 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				userId: '',
+				userInfo: {
+					username: '',
+					phone_number: '',
+					password: ''
+				},
 				isLoggedIn: false
 			};
 		default:
