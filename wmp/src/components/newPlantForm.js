@@ -1,42 +1,94 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { addPlant } from '../actions/index';
 
-export default function NewPlant(props) {
+const initialPlant = {
+	nickname: '',
+	h2o_frequency: '',
+	image: null,
+	species: ''
+};
+
+function NewPlant(props) {
+	const [newPlant, setNewPlant] = useState(initialPlant);
+	const { dispatch } = props;
+
+	const handleChange = e => {
+		setNewPlant({
+			...newPlant,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		axiosWithAuth()
+			.post(`https://ft-water-my-plants-3.herokuapp.com/api/plants/user/${props.userId}`, newPlant)
+			.then(res => {
+				dispatch(addPlant(newPlant));
+				setNewPlant(initialPlant);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<div className="newPlant">
 			<div className="builder">
 				<h2>Add a new Plant!</h2>
-				<form id="plant-form">
-					<label>
-						{' '}
-						Plant's Nickname
-						<input type="text" name="nickname" id="nickname-input" />
-					</label>
+				<form onSubmit={handleSubmit} id="plant-form">
 					<label>
 						{' '}
 						Species
-						<input type="text" name="species" id="species-input" />
+						<input
+							type="text"
+							name="species"
+							id="species-input"
+							value={newPlant.species}
+							onChange={handleChange}
+						/>
 					</label>
-					{/* <label>
+					<label>
 						{' '}
-						Picture for our new friend:
-						<input type="file" name="newImage" id="image-input" />
-					</label> */}
-                    <div className='frequencyDiv'>
-                        <label>
-                            How Frequently to Water 
-                            <input
-                                type="number"
-                                name="frequency"
-                                id="frequency-input"
-                                min="1"
-                            />
-                        </label>
-                    </div>
+						Plant's Nickname
+						<input
+							type="text"
+							name="nickname"
+							id="nickname-input"
+							value={newPlant.nickname}
+							onChange={handleChange}
+						/>
+					</label>
+					 <label>
+						{' '}
+						Water Frequency
+						<input
+							type="number"
+							min='1'
+							name="h2o_frequency"
+							id="water-input"
+							value={newPlant.h2o_frequency}
+							onChange={handleChange}
+						/>
+					</label>
 					<div className="submit">
-						<button id="newPlant-button">Add New Plant!</button>
+						<button id="newPlant-button">Add Plant!</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	);
 }
+
+const mapStateToProps = state => {
+	return {
+		...state,
+		plantData: state.plantData,
+		isLoggedIn: state.isLoggedIn,
+		userId: state.userId
+	};
+};
+
+export default connect(mapStateToProps)(NewPlant);
