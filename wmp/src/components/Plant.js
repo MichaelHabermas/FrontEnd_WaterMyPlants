@@ -52,7 +52,7 @@ function Plant(props) {
 	};
 
 	return (
-		<div className="card-container" key={key}>
+		<div className="card-container" id="editCardContainer" key={key}>
 			<h3>{plant.plant_owner}</h3>
 			<img className="plant-pic" src={plant.image || plantDefault} alt="plant" />
 
@@ -98,11 +98,27 @@ function Plant(props) {
 				</>
 			) : (
 				<>
-					<p>Species: {plant.species}</p>
-					<p>Nickname: {plant.nickname}</p>
-					<p>Water Frequency: {plant.h2o_frequency}</p>
-					<button id="editBtn" onClick={handleStartEditing}>Edit</button>
-					<button id="deleteBtn" onClick={handleDelete}>Delete</button>
+				<div id="plantCardData">
+					<div id="plantCardText">
+						<ul>
+							<li className="speciesCard">
+								Species:<br/>
+								{plant.species}
+							</li>
+							<li className="nicknameCard">
+								Nickname: <br />
+								{plant.nickname}
+							</li>
+							<li className="freqCard">
+								Water Frequency: <br/>
+								{plant.h2o_frequency}
+							</li>
+						</ul>
+						
+						<button id="editBtn" onClick={handleStartEditing}>Edit</button>
+						<button id="deleteBtn" onClick={handleDelete}>Delete</button>
+					</div>
+				</div>
 				</>
 			)}
 		</div>
