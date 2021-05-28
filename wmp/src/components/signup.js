@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { logIn } from '../actions/index';
+import { logIn, setUserInfo } from '../actions/index';
 
 const initialSignUpCredentials = {
 	username: '',
@@ -37,7 +37,8 @@ function Signup(props) {
 					.then(res => {
 						localStorage.setItem('token', res.data.token);
 						setSignUpCredentials(initialSignUpCredentials);
-						dispatch(logIn());
+						dispatch(logIn(res.data.user_id));
+						dispatch(setUserInfo(JSON.parse(res.config.data)));
 						history.push('/dashboard');
 					})
 					.catch(err => {

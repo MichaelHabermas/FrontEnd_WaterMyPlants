@@ -10,6 +10,7 @@ export const LOG_OUT = 'LOG_OUT';
 export const START_EDITING = 'START_EDITING';
 export const UPDATE_PLANT = 'UPDATE_PLANT';
 export const CANCEL_UPDATE = 'CANCEL_UPDATE';
+export const SET_USER_INFO = 'SET_USER_PASSWORD';
 
 export const fetchPlants = () => {
 	return dispatch => {
@@ -35,6 +36,10 @@ export const deletePlant = newPlantList => {
 
 export const logIn = userId => {
 	return { type: LOG_IN, payload: userId };
+};
+
+export const setUserInfo = userInfo => {
+	return { type: SET_USER_INFO, payload: userInfo };
 };
 
 export const startEditing = () => {
