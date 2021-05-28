@@ -28,7 +28,7 @@ function Login(props) {
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', credentials)
 			.then(res => {
-				// console.log('logged in:', res);
+				console.log('logged in:', res);
 				// console.log('password: ', JSON.parse(res.config.data).password);
 				dispatch(logIn(res.data.user_id));
 				dispatch(setUserInfo(JSON.parse(res.config.data)));
