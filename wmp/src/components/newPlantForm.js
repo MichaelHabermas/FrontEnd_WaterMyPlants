@@ -61,7 +61,7 @@ function NewPlant(props) {
 							onChange={handleChange}
 						/>
 					</label>
-					<label>
+					 <label>
 						{' '}
 						Water Frequency
 						<input

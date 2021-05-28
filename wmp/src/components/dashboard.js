@@ -16,7 +16,7 @@ function Dashboard(props) {
 	}, []);
 
 	return (
-		<>
+		<div className='plant-panel'>
 			<NewPlant />
 			<div className="scroll">
 				<div className="cardHeader">
@@ -28,7 +28,7 @@ function Dashboard(props) {
 					})}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
