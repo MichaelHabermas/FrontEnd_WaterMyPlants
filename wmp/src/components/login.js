@@ -77,8 +77,6 @@ function Login(props) {
 	);
 }
 
-// export default Login;
-
 const mapStateToProps = state => {
 	return {
 		...state,
