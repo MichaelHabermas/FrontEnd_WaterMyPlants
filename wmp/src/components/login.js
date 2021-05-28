@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { logIn } from '../actions/index';
+import { logIn, setUserInfo } from '../actions/index';
 
 const initialCredentials = {
 	username: '',
@@ -28,8 +28,10 @@ function Login(props) {
 		axios
 			.post('https://ft-water-my-plants-3.herokuapp.com/api/users/login', credentials)
 			.then(res => {
-				console.log('logged in:', res);
+				// console.log('logged in:', res);
+				// console.log('password: ', JSON.parse(res.config.data).password);
 				dispatch(logIn(res.data.user_id));
+				dispatch(setUserInfo(JSON.parse(res.config.data)));
 				localStorage.setItem('token', res.data.token);
 				localStorage.setItem('isLoggedIn', true);
 				setCredentials(initialCredentials);
@@ -80,7 +82,8 @@ function Login(props) {
 const mapStateToProps = state => {
 	return {
 		...state,
-		isLoggedIn: state.isLoggedIn
+		isLoggedIn: state.isLoggedIn,
+		userInfo: state.userInfo
 	};
 };
 

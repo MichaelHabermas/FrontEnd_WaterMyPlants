@@ -8,7 +8,8 @@ import {
 	DELETE_PLANT,
 	START_EDITING,
 	UPDATE_PLANT,
-	CANCEL_UPDATE
+	CANCEL_UPDATE,
+	SET_USER_INFO
 } from '../actions';
 
 const initialState = {
@@ -17,7 +18,12 @@ const initialState = {
 	error: '',
 	isLoggedIn: localStorage.getItem('isLoggedIn') === 'true' ? true : false,
 	isEditing: false,
-	userId: ''
+	userId: '',
+	userInfo: {
+		username: '',
+		phone_number: '',
+		password: ''
+	}
 };
 
 const reducer = (state = initialState, action) => {
@@ -73,6 +79,15 @@ const reducer = (state = initialState, action) => {
 				...state,
 				userId: action.payload,
 				isLoggedIn: true
+			};
+		case SET_USER_INFO:
+			return {
+				...state,
+				userInfo: {
+					username: action.payload.username,
+					phone_number: state.userInfo.phone_number,
+					password: action.payload.password
+				}
 			};
 		case LOG_OUT:
 			return {
