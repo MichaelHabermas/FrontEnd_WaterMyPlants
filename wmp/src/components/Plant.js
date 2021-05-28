@@ -98,9 +98,20 @@ function Plant(props) {
 				</>
 			) : (
 				<>
-					<p>Species: {plant.species}</p>
-					<p>Nickname: {plant.nickname}</p>
-					<p>Water Frequency: {plant.h2o_frequency}</p>
+					<ul>
+						<li>
+							<p>Species: {plant.species}</p>
+						</li>
+						<li>
+							<p>Nickname: {plant.nickname}</p>
+						</li>
+						<li>
+							<p>Water Frequency: {plant.h2o_frequency}</p>
+						</li>
+					</ul>
+					
+					
+					
 					<button id="editBtn" onClick={handleStartEditing}>Edit</button>
 					<button id="deleteBtn" onClick={handleDelete}>Delete</button>
 				</>
