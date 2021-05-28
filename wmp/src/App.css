@@ -511,4 +511,67 @@
   background: #00cc66;
 }
 
+.plant-panel{
+	height: 80%;
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+}
+
 /* 1024 // 800 // 500 // lower */
+
+@media (max-width: 1024px){
+	#editBtn{
+		width: 70%;
+	}
+	#deleteBtn{
+		width: 70%;
+	}
+}
+
+@media (max-width: 800px){
+	.menu ul li a {
+		font-size: .8rem;
+	}
+	.plant-panel{
+		flex-direction: column;
+	}
+	.newPlant{
+		margin-top: 3vh;
+		margin-bottom: 2vh;
+	}
+	.builder{
+		width: 90%;
+	}
+	#plant-form{
+		flex-flow: row wrap;
+		justify-content: space-evenly;
+		align-items: baseline;
+	}
+	#plant-form input{
+		width: 100px;
+	}
+	#newPlant-button{
+		width: 100px;
+		height: 50px;
+	}
+	.cardHeader{
+		width: 90%;
+	}
+	.card-container{
+		width: 30%;
+	}
+	
+}
+
+@media (max-width: 515px){
+	.menu ul li a {
+		font-size: 11px;
+		width: 90px;
+	}
+}
+@media (max-width: 500px){
+	.builder{
+		height: 25vh;
+	}
+}

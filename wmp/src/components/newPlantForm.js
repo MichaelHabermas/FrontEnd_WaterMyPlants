@@ -65,8 +65,7 @@ function NewPlant(props) {
 						{' '}
 						Water Frequency
 						<input
-							type="number"
-							min='1'
+							type="text"
 							name="h2o_frequency"
 							id="water-input"
 							value={newPlant.h2o_frequency}
