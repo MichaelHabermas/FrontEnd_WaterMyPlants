@@ -532,6 +532,13 @@
 	#deleteBtn{
 		width: 70%;
 	}
+	.card-container{
+		width: 40%;
+	}
+	.plantCard{
+		justify-content: space-evenly;
+		font-weight: bold;
+	}
 }
 
 @media (max-width: 800px){
@@ -563,9 +570,7 @@
 	.cardHeader{
 		width: 90%;
 	}
-	.card-container{
-		width: 30%;
-	}
+	
 	
 }
 
@@ -578,5 +583,8 @@
 @media (max-width: 500px){
 	.builder{
 		height: 25vh;
+	}
+	.card-container{
+		width: 50%;
 	}
 }
