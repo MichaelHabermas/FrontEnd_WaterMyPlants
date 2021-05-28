@@ -58,7 +58,7 @@ function Plant(props) {
 
 			{props.isEditing ? (
 				<>
-					<form id="plant-form">
+					<form id="plantCardInfo">
 						<label>
 							{' '}
 							Species
@@ -92,8 +92,8 @@ function Plant(props) {
 								onChange={handleChange}
 							/>
 						</label>
-						<button onClick={handleUpdateSubmit}>Update</button>
-						<button onClick={handleCancelUpdate}>Cancel</button>
+						<button id="updateBtn" onClick={handleUpdateSubmit}>Update</button>
+						<button id="cancelBtn" onClick={handleCancelUpdate}>Cancel</button>
 					</form>
 				</>
 			) : (
@@ -101,8 +101,8 @@ function Plant(props) {
 					<p>Species: {plant.species}</p>
 					<p>Nickname: {plant.nickname}</p>
 					<p>Water Frequency: {plant.h2o_frequency}</p>
-					<button onClick={handleStartEditing}>Edit</button>
-					<button onClick={handleDelete}>Delete</button>
+					<button id="editBtn" onClick={handleStartEditing}>Edit</button>
+					<button id="deleteBtn" onClick={handleDelete}>Delete</button>
 				</>
 			)}
 		</div>
