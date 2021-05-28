@@ -39,8 +39,8 @@ function Account(props) {
 
   return (
     <>
-      <h1>Account Page</h1>
-      <form id="accountCardInfo">
+      <form id="accountCardInfo" className="abox">
+        <h1>Update Account</h1>
         <label>
           {" "}
           Username
@@ -50,6 +50,7 @@ function Account(props) {
             id="username"
             value={personToEdit.username}
             onChange={handleChange}
+            placeholder="Username"
           />
         </label>
         <label>
@@ -61,6 +62,7 @@ function Account(props) {
             id="password"
             value={personToEdit.password}
             onChange={handleChange}
+            placeholder="Password"
           />
         </label>
         <label>
@@ -72,6 +74,7 @@ function Account(props) {
             id="phone_number"
             value={personToEdit.phone_number}
             onChange={handleChange}
+            placeholder="Phone Number"
           />
         </label>
         <button onClick={handleSubmit}>Update Account</button>
